@@ -1,0 +1,17 @@
+# python
+*.pyc
+
+# pytest
+.pytest_cache/
+
+# coverage
+.coverage
+
+# tox
+.tox/
+.eggs/
+__pycache__/
+inteinfinder.egg-info/
+
+# emacs
+*~
