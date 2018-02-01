@@ -35,4 +35,5 @@ the tox environment:
 When you edit the files, you're likely going to create lots of linter
 errors caught by the tox unit tests if your text editor doesn't have
 interactive error reporting.  If you use Emacs, you can configure it
-for python development by installing [elpy](/jorgenschaefer/elpy).
+for python development by installing
+[elpy](https://github.com/jorgenschaefer/elpy).
