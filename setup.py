@@ -20,7 +20,10 @@ setup(
     author_email="pariksheet.nanda@uconn.edu",
     packages=find_packages(),
     setup_requires=PYTEST_RUNNER,
-    install_requires=['biopython'],
+    install_requires=[
+        'biopython',
+        'scrapy',
+    ],
     tests_require=[
         'pytest',               # Test suite.
         'pytest-cov',           # `coverage` wrapper.
@@ -28,7 +31,10 @@ setup(
     ],
     # Data was downloaded from:
     # http://www.biocenter.helsinki.fi/bi/iwai/InBase/tools.neb.com/inbase/inbase_fasta.txt
-    data_files=['data/inbase_fasta.txt'],
+    data_files=[
+        'data/inbase_fasta.txt',
+        'data/inbase.json',
+    ],
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Science/Research',
