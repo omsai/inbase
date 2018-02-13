@@ -1,6 +1,7 @@
 # Intein finder
 
 [![Build Status](https://travis-ci.org/omsai/inteinfinder.svg?branch=master)](https://travis-ci.org/omsai/inteinfinder)
+[![Coverage](https://codecov.io/gh/omsai/inteinfinder/graphs/badge.svg)](https://codecov.io/gh/omsai/inteinfinder)
 
 Intein finder uses the intein database, InBase, to detect putative
 inteins in your favorite genome.
