@@ -11,7 +11,7 @@
 .tox/
 .eggs/
 __pycache__/
-inteinfinder.egg-info/
+inbase.egg-info/
 
 # emacs
 *~

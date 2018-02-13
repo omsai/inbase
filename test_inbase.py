@@ -1,10 +1,11 @@
 # Released into the Public Domain:
 # https://creativecommons.org/publicdomain/zero/1.0/legalcode
 
-"""Unit tests for inteinfinder."""
+"""Unit tests for inbase."""
 
 # Package imports.
-from inteinfinder import extended_protein, INBASE
+from inbase import INBASE
+from inbase.db import extended_protein
 
 
 def test_inbase_db_is_read_as_proteins():

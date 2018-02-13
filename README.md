@@ -1,12 +1,17 @@
-# Intein finder
+# InBase
 
-[![Build Status](https://travis-ci.org/omsai/inteinfinder.svg?branch=master)](https://travis-ci.org/omsai/inteinfinder)
-[![Coverage](https://codecov.io/gh/omsai/inteinfinder/graphs/badge.svg)](https://codecov.io/gh/omsai/inteinfinder)
+[![Build Status](https://travis-ci.org/omsai/inbase.svg?branch=master)](https://travis-ci.org/omsai/inbase)
+[![Coverage](https://codecov.io/gh/omsai/inbase/graphs/badge.svg)](https://codecov.io/gh/omsai/inbase)
 
-Intein finder uses the intein database, InBase, to detect putative
-inteins in your favorite genome.
+InBase provides a convenient pandas DataFrame of the 585 inteins in
+the unmaintained [inteins.com](http://inteins.com) InBase database.
+The protein sequences are available as biopython SeqRecord objects,
+but otherwise nothing else is changed from the inteins.com metadata.
 
-# Testing
+InBase was collected using [scrapy](https://scrapy.org) and can
+updated as detailed in the "update database" section below.
+
+# Development Environment
 
 Virtual environments and tests are orchestrated using `tox`.  Install
 `tox` using `pip`:
@@ -18,20 +23,55 @@ Make sure that `~/.local/bin` or similar is in your path per
 
 Install without tests:
 
-    tox --develop --notest
+    tox --notest -e py27
 
-Test:
+# Update DataBase
 
-    tox --develop
+Unfortunately `scrapy` does not provide an update function to check
+against the existing JSON data.  One has to redownload the database,
+but which only takes a few seconds.  First, you will need to clone
+this repository and create a "development environment" as described in
+the section above.  Then initialize the data environment with the
+`scrapy` extras package:
+
+    tox --notest -e data
+
+Check the current number of inbase records:
+
+    cat data/inbase.json | wc -l | xargs expr -2 +
+
+Redownload the data:
+
+    rm data/inbase.json
+    .tox/data/bin/scrapy runspider -o data/inbase.json inbase.py
+
+Check the new number of records:
+
+    cat data/inbase.json | wc -l | xargs expr -2 +
+
+If there indeed are more records, update your Manifest checksums,
+re-run the data tests and update your git repository and submit a pull
+request:
+
+    .tox/data/bin/gemato create --hashes "MD5 SHA1 SHA256" data/
+    tox -e data
+    git commit data/* -m "MAINT: Update inbase database on $(date -I)"
+	git push
+
+# Tests
+
+Run all non-data tests using:
+
+    tox
 
 Debug failing tests:
 
-    tox --develop -- --pdb
+    tox --pdb
 
 If you add dependencies and get import errors, you need to recreate
 the tox environment:
 
-    tox --recreate --develop
+    tox --recreate
 
 When you edit the files, you're likely going to create lots of linter
 errors caught by the tox unit tests if your text editor doesn't have
