@@ -22,6 +22,7 @@ setup(
     setup_requires=PYTEST_RUNNER,
     install_requires=[
         'biopython',
+        'pandas',
         'scrapy',
     ],
     tests_require=[
@@ -32,7 +33,6 @@ setup(
     # Data was downloaded from:
     # http://www.biocenter.helsinki.fi/bi/iwai/InBase/tools.neb.com/inbase/inbase_fasta.txt
     data_files=[
-        'data/inbase_fasta.txt',
         'data/inbase.json',
     ],
     classifiers=[

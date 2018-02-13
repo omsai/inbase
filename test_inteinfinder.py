@@ -4,9 +4,9 @@
 """Unit tests for inteinfinder."""
 
 # Package imports.
-from inteinfinder import extended_protein, INTEINS_KNOWN
+from inteinfinder import extended_protein, INBASE
 
 
 def test_inbase_db_is_read_as_proteins():
-    assert all([record.seq.alphabet == extended_protein
-                for record in INTEINS_KNOWN])
+    assert all(INBASE['Intein aa Sequence'].apply(lambda x: x.seq.alphabet)
+               == extended_protein)
