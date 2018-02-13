@@ -65,7 +65,7 @@ Check the current number of inbase records:
 Redownload the data:
 
     rm data/inbase.json
-    .tox/data/bin/scrapy runspider -o data/inbase.json inbase.py
+    .tox/data/bin/scrapy runspider -o data/inbase.json inbase/update.py
 
 Check the new number of records:
 
