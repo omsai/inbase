@@ -14,7 +14,7 @@ PYTEST_RUNNER = ['pytest-runner', 'pytest'] if NEEDS_PYTEST else []
 
 setup(
     name="inbase",
-    version="0.1.dev1",
+    version="1.0",
     description=__doc__,
     author="Pariksheet Nanda",
     author_email="pariksheet.nanda@uconn.edu",
@@ -36,7 +36,7 @@ setup(
         'data/inbase.json',
     ],
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Science/Research',
         'Topic :: Database',
         'Topic :: Scientific/Engineering :: Bio-Informatics',
