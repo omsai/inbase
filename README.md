@@ -11,6 +11,28 @@ but otherwise nothing else is changed from the inteins.com metadata.
 InBase was collected using [scrapy](https://scrapy.org) and can
 updated as detailed in the "update database" section below.
 
+# Installation
+
+    pip install --user git+https://github.com/omsai/inbase
+
+# Usage
+
+``` python
+from inbase import INBASE
+
+# See first few lines of all inteins.
+INBASE.head()
+# See first intein.
+INBASE.ix[0]
+# Access biopython seq record information of first intein.
+INBASE.ix[0, 'Intein aa Sequence']
+# Count archea inteins.
+INBASE['Domain of Life'].unique()
+(INBASE['Domain of Life'] == 'Archaea').sum()
+# Count all inteins.
+len(INBASE)
+```
+
 # Development Environment
 
 Virtual environments and tests are orchestrated using `tox`.  Install
