@@ -5,6 +5,7 @@
 
 # Standard library imports.
 import io
+import os
 import pkg_resources
 
 # 3rdparty imports.
@@ -22,7 +23,11 @@ def str_to_protein(seq_string):
 
 
 # Load inbase during package startup.
-_FILE_JSON = pkg_resources.resource_filename('inbase',
-                                             '../data/inbase.json')
+_FILE_JSON = pkg_resources.resource_filename(__name__, 'data/inbase.json')
+if not os.path.exists(_FILE_JSON):  # pragma: no cover
+    # Pandas doesn't give an informative error if you ask it to read a
+    # non-existant file.
+    raise IOError(('Package was not installed correctly.  '
+                   'Cannot find database file %s' % _FILE_JSON))
 INBASE = pd.read_json(_FILE_JSON)
 INBASE['Intein aa Sequence'] = INBASE['Intein aa Sequence'].map(str_to_protein)

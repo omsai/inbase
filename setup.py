@@ -32,9 +32,9 @@ setup(
         'pytest-cov',           # `coverage` wrapper.
         'pytest-pylint',        # `pylint` wrapper.
     ],
-    data_files=[
-        'data/inbase.json',
-    ],
+    package_data={
+        'inbase': ['data/*.json'],
+    },
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Science/Research',
