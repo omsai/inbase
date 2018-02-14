@@ -14,7 +14,7 @@ PYTEST_RUNNER = ['pytest-runner', 'pytest'] if NEEDS_PYTEST else []
 
 setup(
     name="inbase",
-    version="1.0",
+    version="20180212.1",
     description=__doc__,
     author="Pariksheet Nanda",
     author_email="pariksheet.nanda@uconn.edu",
