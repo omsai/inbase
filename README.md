@@ -76,7 +76,7 @@ re-run the data tests and update your git repository and submit a pull
 request:
 
     version=$(date +%Y%m%d.1)
-    sed -i -E "s#(version=\").*(\".+)#\1${version}\2#" setup.py
+    sed -i -E "s#(version=').*('.+)#\1${version}\2#" setup.py
     .tox/data/bin/gemato create --hashes "MD5 SHA1 SHA256" data/
     tox -e data
     git commit setup.py data/* -m "MAINT: Update inbase database on $(date -I)"

@@ -13,11 +13,11 @@ NEEDS_PYTEST = {'pytest', 'test', 'ptr'}.intersection(sys.argv)
 PYTEST_RUNNER = ['pytest-runner', 'pytest'] if NEEDS_PYTEST else []
 
 setup(
-    name="inbase",
-    version="20180212.1",
+    name='inbase',
+    version='20180212.1',
     description=__doc__,
-    author="Pariksheet Nanda",
-    author_email="pariksheet.nanda@uconn.edu",
+    author='Pariksheet Nanda',
+    author_email='pariksheet.nanda@uconn.edu',
     packages=find_packages(),
     setup_requires=PYTEST_RUNNER,
     install_requires=[
