@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/omsai/inbase.svg?branch=master)](https://travis-ci.org/omsai/inbase)
 [![Coverage](https://codecov.io/gh/omsai/inbase/graphs/badge.svg)](https://codecov.io/gh/omsai/inbase)
+[![License: CC0-1.0](https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)
 
 InBase provides a convenient pandas DataFrame of the 585 inteins in
 the unmaintained [inteins.com](http://inteins.com) InBase database.
